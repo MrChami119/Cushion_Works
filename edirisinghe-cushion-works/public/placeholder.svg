@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#141414"/>
+  <rect x="1" y="1" width="798" height="598" stroke="#2a2a2a" stroke-width="2" fill="none"/>
+  <path d="M120 420 L200 340 L600 340 L680 420 L680 480 L120 480 Z" fill="#1f1f1f" stroke="#3a3a3a" stroke-width="1.5"/>
+  <path d="M220 340 L280 260 L520 260 L580 340" fill="#252525" stroke="#3a3a3a" stroke-width="1.5"/>
+  <rect x="240" y="280" width="320" height="60" rx="8" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <circle cx="200" cy="480" r="40" fill="#111" stroke="#444" stroke-width="2"/>
+  <circle cx="600" cy="480" r="40" fill="#111" stroke="#444" stroke-width="2"/>
+  <circle cx="200" cy="480" r="20" fill="#222" stroke="#555" stroke-width="1"/>
+  <circle cx="600" cy="480" r="20" fill="#222" stroke="#555" stroke-width="1"/>
+  <rect x="300" y="380" width="200" height="80" rx="6" fill="#1c1c1c" stroke="#c0392b" stroke-width="1" stroke-opacity="0.4"/>
+  <line x1="400" y1="380" x2="400" y2="460" stroke="#c0392b" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="400" y="520" text-anchor="middle" fill="#666" font-family="system-ui, sans-serif" font-size="14" letter-spacing="2">VEHICLE INTERIOR</text>
+</svg>
