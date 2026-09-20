@@ -20,12 +20,12 @@ export default function AboutHero() {
             <h1 className="text-3xl md:text-5xl font-bold mb-6">Our Journey of Excellence</h1>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                Founded in 1995, Edirisinghe Cushion Works began as a small family business with a passion for
+                Founded in 1997, Edirisingha Cushion Works began as a small family business with a passion for
                 craftsmanship and an eye for detail. What started as a modest workshop has grown into a leading name in
                 vehicle interior customization across Sri Lanka.
               </p>
               <p>
-                Our founder, Mr. Edirisinghe, believed that every vehicle deserves an interior that reflects its owner’s
+                Our founder believed that every vehicle deserves an interior that reflects its owner’s
                 personality and enhances their driving experience. This philosophy continues to guide our work today, as
                 we combine traditional craftsmanship with modern techniques to create interiors that exceed
                 expectations.
@@ -49,7 +49,7 @@ export default function AboutHero() {
               <div className="relative rounded-2xl overflow-hidden border border-primary/10 shadow-xl">
                 <Image
                   src="/placeholder.svg"
-                  alt="Edirisinghe Cushion Works Workshop"
+                  alt="Edirisingha Cushion Works workshop"
                   width={600}
                   height={400}
                   className="w-full h-auto object-cover"

@@ -45,14 +45,14 @@ export default function AboutSection() {
             <div className="relative rounded-2xl overflow-hidden border border-primary/10 shadow-xl">
               <Image
                 src="/placeholder.svg"
-                alt="Edirisinghe Cushion Works"
+                alt="Edirisingha Cushion Works"
                 width={600}
                 height={400}
                 className="w-full h-auto object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/60 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 p-4 backdrop-blur-sm bg-background/30 rounded-lg border border-primary/10">
-                <p className="text-sm font-medium">Crafting premium interiors since 1995</p>
+                <p className="text-sm font-medium">Crafting premium interiors since 1997</p>
               </div>
             </div>
           </motion.div>
@@ -69,7 +69,7 @@ export default function AboutSection() {
                 Redefining Vehicle Interior Excellence
               </motion.h2>
               <motion.p variants={itemVariants} className="text-muted-foreground mb-6">
-                Edirisinghe Cushion Works has been at the forefront of vehicle interior customization for over two
+                Edirisingha Cushion Works has been at the forefront of vehicle interior customization for over two
                 decades. Our journey began with a simple mission: to transform ordinary vehicle interiors into
                 extraordinary experiences.
               </motion.p>

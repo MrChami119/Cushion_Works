@@ -1,209 +1,244 @@
-"use client"
-
-import { motion } from "framer-motion"
 import Link from "next/link"
-import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react"
+import { BrandWordmark } from "@cushion/ui/brand-wordmark"
+import {
+  ArrowRight,
+  CalendarDays,
+  Facebook,
+  Instagram,
+  MapPin,
+  Music2,
+  Phone,
+  Youtube,
+} from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+const exploreLinks = [
+  { name: "About Us", href: "/about" },
+  { name: "Our Services", href: "/services" },
+  { name: "Project Gallery", href: "/gallery" },
+  { name: "Customer Reviews", href: "/reviews" },
+  { name: "Frequently Asked Questions", href: "/faq" },
+]
+
+const services = [
+  "Custom seat covers",
+  "Interior modifications",
+  "Dashboard restoration",
+  "Roof lining and carpeting",
+  "Commercial vehicle interiors",
+]
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/edirisinghacushionworks/",
+    icon: Facebook,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/edirisinghacushionworks_/",
+    icon: Instagram,
+  },
+  { name: "TikTok", href: "https://www.tiktok.com/@edirisinghacushionworks", icon: Music2 },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/channel/UCn197-G5lqhFHCtq1xm98Lw",
+    icon: Youtube,
+  },
+]
+
+const footerHeadingClass =
+  "text-sm font-semibold uppercase tracking-[0.16em] text-zinc-950 dark:text-white"
+
+const footerLinkClass =
+  "text-sm text-zinc-600 transition-colors hover:text-red-600 dark:text-zinc-400 dark:hover:text-red-500"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-background border-t border-primary/10">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer
+      className={cn(
+        "border-t border-zinc-200 bg-[#f7f7f5] text-zinc-900",
+        "dark:border-white/10 dark:bg-zinc-950 dark:text-zinc-100",
+      )}
+    >
+      <div
+        className={cn(
+          "relative overflow-hidden border-b border-zinc-200/80 bg-white/70 backdrop-blur-xl",
+          "shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]",
+          "dark:border-white/15 dark:bg-zinc-900/75",
+          "dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]",
+        )}
+      >
+        <div
+          className={cn(
+            "pointer-events-none absolute inset-0 bg-gradient-to-r",
+            "from-white/80 via-white/30 to-red-100/70",
+            "dark:from-white/[0.05] dark:via-transparent dark:to-red-950/60",
+          )}
+        />
+        <div
+          className={cn(
+            "pointer-events-none absolute -right-16 -top-24 size-64 rounded-full",
+            "bg-red-400/20 blur-3xl dark:bg-red-600/20",
+          )}
+        />
+        <div
+          className={cn(
+            "pointer-events-none absolute -bottom-28 -left-20 size-56 rounded-full",
+            "bg-white/60 blur-3xl dark:bg-white/[0.06]",
+          )}
+        />
+        <div
+          className={cn(
+            "relative mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6",
+            "md:flex-row md:items-center md:justify-between lg:px-8",
+          )}
+        >
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-4"
-            >
-              <Link
-                href="/"
-                className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-blue-600"
-              >
-                ECW
-              </Link>
-            </motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-muted-foreground mb-6"
-            >
-              Transforming vehicle interiors with precision craftsmanship and innovative design since 1995.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex space-x-4"
-            >
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Youtube className="h-5 w-5" />
-                <span className="sr-only">YouTube</span>
-              </Link>
-            </motion.div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-600 dark:text-white/75">
+              Start your transformation
+            </p>
+            <h2 className="mt-2 text-2xl font-bold text-zinc-950 dark:text-white sm:text-3xl">
+              Ready to upgrade your vehicle interior?
+            </h2>
           </div>
-
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-lg font-semibold mb-4"
-            >
-              Quick Links
-            </motion.h3>
-            <motion.ul
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-2"
-            >
-              <li>
-                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="text-muted-foreground hover:text-primary transition-colors">
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <Link href="/reviews" className="text-muted-foreground hover:text-primary transition-colors">
-                  Reviews
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-muted-foreground hover:text-primary transition-colors">
-                  FAQ
-                </Link>
-              </li>
-            </motion.ul>
-          </div>
-
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-lg font-semibold mb-4"
-            >
-              Services
-            </motion.h3>
-            <motion.ul
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-2"
-            >
-              <li>
-                <Link
-                  href="/services/seat-covers"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Custom Seat Covers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/interior-redesign"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Interior Redesign
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/material-upgrades"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Material Upgrades
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/restoration"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  Restoration Services
-                </Link>
-              </li>
-            </motion.ul>
-          </div>
-
-          <div>
-            <motion.h3
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-lg font-semibold mb-4"
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/contact"
+              className={cn(
+                "inline-flex h-11 items-center justify-center rounded-md border px-5 text-sm font-semibold",
+                "border-zinc-300 bg-white/30 text-zinc-900 transition-colors hover:bg-white/80",
+                "dark:border-white/35 dark:bg-transparent dark:text-white dark:hover:bg-white/10",
+              )}
             >
               Contact Us
-            </motion.h3>
-            <motion.ul
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-4"
+            </Link>
+            <Link
+              href="/appointment"
+              className={cn(
+                "inline-flex h-11 items-center justify-center gap-2 rounded-md px-5 text-sm font-semibold",
+                "bg-red-600 text-white shadow-sm transition-colors hover:bg-red-700",
+                "dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100",
+              )}
             >
-              <li className="flex items-start">
-                <MapPin className="h-5 w-5 mr-2 text-primary" />
-                <span className="text-muted-foreground">123 Workshop Street, Colombo, Sri Lanka</span>
-              </li>
-              <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-2 text-primary" />
-                <Link href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                  +94 123 456 7890
-                </Link>
-              </li>
-              <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-2 text-primary" />
-                <Link href="mailto:info@ecw.com" className="text-muted-foreground hover:text-primary transition-colors">
-                  info@ecw.com
-                </Link>
-              </li>
-            </motion.ul>
+              <CalendarDays className="size-4" aria-hidden="true" />
+              Book Appointment
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.25fr_0.8fr_1fr_1.35fr]">
+          <div>
+            <Link href="/" className="group inline-flex" aria-label="Edirisingha Cushion Works home">
+              <BrandWordmark />
+            </Link>
+            <p className="mt-5 max-w-sm text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+              Specialist craftsmanship for vehicle interiors, upholstery, restoration, and
+              complete custom modifications.
+            </p>
+            <div className="mt-6 flex gap-2">
+              {socialLinks.map(({ name, href, icon: Icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit Edirisingha on ${name}`}
+                  className={cn(
+                    "inline-flex size-10 items-center justify-center rounded-full border",
+                    "border-zinc-300 text-zinc-600 transition-colors",
+                    "hover:border-red-600 hover:bg-red-600 hover:text-white",
+                    "dark:border-white/10 dark:text-zinc-400",
+                  )}
+                >
+                  <Icon className="size-4" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className={footerHeadingClass}>Explore</h3>
+            <ul className="mt-5 space-y-3">
+              {exploreLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={footerLinkClass}>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className={footerHeadingClass}>What We Do</h3>
+            <ul className="mt-5 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+              {services.map((service) => (
+                <li key={service}>{service}</li>
+              ))}
+            </ul>
+            <Link
+              href="/services"
+              className={cn(
+                "mt-5 inline-flex items-center gap-1 text-sm font-semibold text-red-600",
+                "hover:text-red-700 dark:text-red-500 dark:hover:text-red-400",
+              )}
+            >
+              View all services
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div>
+            <h3 className={footerHeadingClass}>Visit or Call</h3>
+            <div className="mt-5 space-y-5">
+              <div className="flex gap-3">
+                <MapPin className="mt-0.5 size-5 shrink-0 text-red-500" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-semibold text-zinc-950 dark:text-white">Head Office</p>
+                  <p className="mt-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                    A1, Pasyala 11890, Sri Lanka
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <MapPin className="mt-0.5 size-5 shrink-0 text-red-500" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-semibold text-zinc-950 dark:text-white">Negombo Branch</p>
+                  <p className="mt-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                    Colombo Road, Kurana, Negombo
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <Phone className="mt-0.5 size-5 shrink-0 text-red-500" aria-hidden="true" />
+                <div className="space-y-1">
+                  <a href="tel:+94770103434" className={cn("block", footerLinkClass)}>
+                    +94 77 010 3434
+                  </a>
+                  <a href="tel:+94334466729" className={cn("block", footerLinkClass)}>
+                    +94 33 446 6729
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="border-t border-primary/10 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center"
+        <div
+          className={cn(
+            "mt-12 flex flex-col gap-3 border-t border-zinc-200 pt-6 text-xs text-zinc-500",
+            "dark:border-white/10 sm:flex-row sm:items-center sm:justify-between",
+          )}
         >
-          <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} Edirisinghe Cushion Works. All rights reserved.
-          </p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-          </div>
-        </motion.div>
+          <p>&copy; {currentYear} Edirisingha Cushion Works (Pvt) Ltd. All rights reserved.</p>
+          <p>Vehicle interior specialists since 1997.</p>
+        </div>
       </div>
     </footer>
   )

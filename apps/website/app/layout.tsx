@@ -1,5 +1,5 @@
 import type React from "react"
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@cushion/ui/theme-provider"
 import { Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import type { Metadata } from "next"
@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-display" })
 
 export const metadata: Metadata = {
-  title: "Edirisinghe Cushion Works",
-  description: "High-end vehicle interior and cushion modification company",
+  title: "Edirisingha Cushion Works",
+  description: "Vehicle interior modification, upholstery, restoration, and custom craftsmanship in Sri Lanka.",
 }
 
 export default function RootLayout({

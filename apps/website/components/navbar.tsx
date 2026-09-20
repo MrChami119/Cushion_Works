@@ -1,103 +1,177 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
+import { usePathname } from "next/navigation"
+import { AnimatePresence, motion } from "framer-motion"
+import { CalendarDays, ChevronDown, Menu, X } from "lucide-react"
 
-const navLinks = [
+import { BrandWordmark } from "@cushion/ui/brand-wordmark"
+import { ThemeToggle } from "@cushion/ui/theme-toggle"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+const primaryLinks = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Gallery", href: "/gallery" },
-  { name: "Reviews", href: "/reviews" },
   { name: "Contact", href: "/contact" },
-  { name: "Appointment", href: "/appointment" },
+]
+
+const companyLinks = [
+  { name: "About Us", href: "/about" },
+  { name: "Customer Reviews", href: "/reviews" },
   { name: "FAQ", href: "/faq" },
 ]
 
 export default function Navbar() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
+    const handleScroll = () => setScrolled(window.scrollY > 16)
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === href : pathname === href || pathname.startsWith(`${href}/`)
+
+  const companyIsActive = companyLinks.some(({ href }) => isActive(href))
+
+  const linkClass = (href: string) =>
+    cn(
+      "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+      isActive(href)
+        ? "bg-primary/10 text-primary"
+        : "text-foreground/75 hover:bg-muted hover:text-foreground",
+    )
+
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
+      aria-label="Main navigation"
+      className={cn(
+        "fixed inset-x-0 top-0 z-40 border-b transition-all duration-300",
+        scrolled
+          ? "border-border/80 bg-background/95 shadow-lg shadow-black/5 backdrop-blur-xl"
+          : "border-border/50 bg-background/90 backdrop-blur-md",
+      )}
     >
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-blue-600"
-          >
-            ECW
-          </motion.div>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link href="/" className="group shrink-0" aria-label="Edirisingha Cushion Works home">
+          <BrandWordmark size="sm" />
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-1">
-          {navLinks.map((link, index) => (
-            <motion.div
-              key={link.name}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-            >
-              <Link href={link.href} className="px-3 py-2 text-sm rounded-md hover:bg-primary/10 transition-colors">
-                {link.name}
-              </Link>
-            </motion.div>
+        <div className="hidden items-center gap-1 lg:flex xl:translate-x-6">
+          {primaryLinks.map((link) => (
+            <Link key={link.href} href={link.href} className={linkClass(link.href)}>
+              {link.name}
+            </Link>
           ))}
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className={cn(
+                  "gap-1 px-3 text-sm font-medium",
+                  companyIsActive ? "bg-primary/10 text-primary" : "text-foreground/75",
+                )}
+              >
+                Company
+                <ChevronDown className="size-4" aria-hidden="true" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-52">
+              {companyLinks.map((link) => (
+                <DropdownMenuItem key={link.href} asChild>
+                  <Link
+                    href={link.href}
+                    className={isActive(link.href) ? "text-primary" : undefined}
+                  >
+                    {link.name}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <Button asChild className="ml-3 bg-red-600 text-white shadow-sm hover:bg-red-700">
+            <Link href="/appointment">
+              <CalendarDays className="size-4" aria-hidden="true" />
+              Book Appointment
+            </Link>
+          </Button>
+          <div className="ml-2">
+            <ThemeToggle />
+          </div>
         </div>
 
-        {/* Mobile Navigation Toggle */}
-        <div className="md:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          >
+            {isOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </Button>
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-background/95 backdrop-blur-lg"
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden border-t border-border bg-background/98 lg:hidden"
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col space-y-3">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2, delay: index * 0.05 }}
+            <div className="mx-auto max-w-7xl space-y-1 px-4 py-5 sm:px-6">
+              {primaryLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block ${linkClass(link.href)}`}
+                  onClick={() => setIsOpen(false)}
                 >
-                  <Link
-                    href={link.href}
-                    className="block px-3 py-2 rounded-md hover:bg-primary/10 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
+                  {link.name}
+                </Link>
               ))}
+
+              <p className="px-3 pb-1 pt-4 text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                Company
+              </p>
+              {companyLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block ${linkClass(link.href)}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+
+              <Button asChild className="mt-4 w-full bg-red-600 text-white hover:bg-red-700">
+                <Link href="/appointment" onClick={() => setIsOpen(false)}>
+                  <CalendarDays className="size-4" aria-hidden="true" />
+                  Book Appointment
+                </Link>
+              </Button>
             </div>
           </motion.div>
         )}

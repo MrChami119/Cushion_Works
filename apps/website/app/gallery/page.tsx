@@ -1,4 +1,3 @@
-import { ModeToggle } from "@/components/mode-toggle"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import GalleryGrid from "@/components/gallery-grid"
@@ -6,9 +5,6 @@ import GalleryGrid from "@/components/gallery-grid"
 export default function GalleryPage() {
   return (
     <main className="min-h-screen bg-background">
-      <div className="fixed top-4 right-4 z-50">
-        <ModeToggle />
-      </div>
       <Navbar />
       <section className="pt-24 pb-12 md:pt-32 md:pb-20 bg-background">
         <div className="container mx-auto px-4 text-center">

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Youtube } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Music2, Youtube } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -21,8 +21,8 @@ export default function ContactInfo() {
               <MapPin className="h-5 w-5 text-primary" />
             </div>
             <div>
-              <h3 className="font-medium mb-1">Our Location</h3>
-              <p className="text-muted-foreground">123 Workshop Street, Colombo, Sri Lanka</p>
+              <h3 className="font-medium mb-1">Head Office</h3>
+              <p className="text-muted-foreground">A1, Pasyala 11890, Sri Lanka</p>
             </div>
           </div>
           <div className="flex items-start">
@@ -32,8 +32,8 @@ export default function ContactInfo() {
             <div>
               <h3 className="font-medium mb-1">Phone Number</h3>
               <p className="text-muted-foreground">
-                <Link href="tel:+94123456789" className="hover:text-primary transition-colors">
-                  +94 123 456 789
+                <Link href="tel:+94770103434" className="hover:text-primary transition-colors">
+                  +94 77 010 3434
                 </Link>
               </p>
             </div>
@@ -45,8 +45,8 @@ export default function ContactInfo() {
             <div>
               <h3 className="font-medium mb-1">Email Address</h3>
               <p className="text-muted-foreground">
-                <Link href="mailto:info@ecw.com" className="hover:text-primary transition-colors">
-                  info@ecw.com
+                <Link href="mailto:info@edirisinghecushionworks.com" className="hover:text-primary transition-colors">
+                  info@edirisinghecushionworks.com
                 </Link>
               </p>
             </div>
@@ -72,30 +72,42 @@ export default function ContactInfo() {
       <div className="bg-background/50 backdrop-blur-sm rounded-xl border border-primary/10 p-6 md:p-8 shadow-lg">
         <h2 className="text-2xl font-bold mb-6">Follow Us</h2>
         <div className="flex space-x-4">
-          <Link
-            href="#"
+          <a
+            href="https://www.facebook.com/edirisinghacushionworks/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Edirisingha on Facebook"
             className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
           >
             <Facebook className="h-5 w-5 text-primary" />
-          </Link>
-          <Link
-            href="#"
+          </a>
+          <a
+            href="https://www.instagram.com/edirisinghacushionworks_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Edirisingha on Instagram"
             className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
           >
             <Instagram className="h-5 w-5 text-primary" />
-          </Link>
-          <Link
-            href="#"
+          </a>
+          <a
+            href="https://www.tiktok.com/@edirisinghacushionworks"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Edirisingha on TikTok"
             className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
           >
-            <Twitter className="h-5 w-5 text-primary" />
-          </Link>
-          <Link
-            href="#"
+            <Music2 className="h-5 w-5 text-primary" />
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCn197-G5lqhFHCtq1xm98Lw"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Edirisingha on YouTube"
             className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
           >
             <Youtube className="h-5 w-5 text-primary" />
-          </Link>
+          </a>
         </div>
       </div>
 

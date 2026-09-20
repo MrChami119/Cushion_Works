@@ -5,10 +5,10 @@ import { motion, useInView } from "framer-motion"
 
 const timelineEvents = [
   {
-    year: "1995",
+    year: "1997",
     title: "The Beginning",
     description:
-      "Edirisinghe Cushion Works was founded as a small family business specializing in vehicle seat repairs.",
+      "Edirisingha Cushion Works was founded as a small family business specializing in vehicle seat repairs.",
   },
   {
     year: "2000",
