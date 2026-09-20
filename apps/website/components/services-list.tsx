@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Car, Sofa, Palette, Settings, Truck, Gauge, Shield, Sparkles } from "lucide-react"
 
+import { fadeUpVariants, staggerContainerVariants } from "@/lib/motion"
+
 const services = [
   {
     icon: <Car className="h-10 w-10 text-red-600" />,
@@ -70,36 +72,17 @@ export default function ServicesList() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  }
-
   return (
     <section className="py-20 bg-background/50" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
-          variants={containerVariants}
+          variants={staggerContainerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="grid md:grid-cols-2 gap-8"
         >
           {services.map((service, index) => (
-            <motion.div key={index} variants={itemVariants}>
+            <motion.div key={index} variants={fadeUpVariants}>
               <div className="group border border-primary/10 rounded-xl overflow-hidden bg-background/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
                 <div className="relative h-48 overflow-hidden">
                   <Image

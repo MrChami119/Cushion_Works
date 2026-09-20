@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { fadeUpVariants } from "@/lib/motion"
 import Link from "next/link"
 
 export default function AboutSection() {
@@ -20,15 +21,6 @@ export default function AboutSection() {
     },
   }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  }
-
   return (
     <section className="py-20 bg-background" id="about">
       <div className="container mx-auto px-4">
@@ -39,7 +31,7 @@ export default function AboutSection() {
           animate={isInView ? "visible" : "hidden"}
           className="grid md:grid-cols-2 gap-10 items-center"
         >
-          <motion.div variants={itemVariants} className="relative">
+          <motion.div variants={fadeUpVariants} className="relative">
             <div className="absolute -top-4 -left-4 w-24 h-24 bg-red-600/20 rounded-full blur-2xl" />
             <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl" />
             <div className="relative rounded-2xl overflow-hidden border border-primary/10 shadow-xl">
@@ -57,30 +49,30 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="space-y-6">
+          <motion.div variants={fadeUpVariants} className="space-y-6">
             <div>
               <motion.span
-                variants={itemVariants}
+                variants={fadeUpVariants}
                 className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase rounded-full bg-primary/20 text-primary mb-4"
               >
                 About Us
               </motion.span>
-              <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold mb-4">
+              <motion.h2 variants={fadeUpVariants} className="text-3xl md:text-4xl font-bold mb-4">
                 Redefining Vehicle Interior Excellence
               </motion.h2>
-              <motion.p variants={itemVariants} className="text-muted-foreground mb-6">
+              <motion.p variants={fadeUpVariants} className="text-muted-foreground mb-6">
                 Edirisingha Cushion Works has been at the forefront of vehicle interior customization for over two
                 decades. Our journey began with a simple mission: to transform ordinary vehicle interiors into
                 extraordinary experiences.
               </motion.p>
-              <motion.p variants={itemVariants} className="text-muted-foreground mb-6">
+              <motion.p variants={fadeUpVariants} className="text-muted-foreground mb-6">
                 Today, we are proud to be the preferred choice for discerning vehicle owners who demand nothing but the
                 best. Our team of skilled craftsmen combines traditional techniques with cutting-edge technology to
                 deliver interiors that exceed expectations.
               </motion.p>
             </div>
 
-            <motion.div variants={itemVariants}>
+            <motion.div variants={fadeUpVariants}>
               <Link href="/about">
                 <Button
                   variant="outline"

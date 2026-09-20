@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Car, Sofa, Palette, Settings } from "lucide-react"
 
+import { fadeUpVariants, staggerContainerVariants } from "@/lib/motion"
+
 const services = [
   {
     icon: <Car className="h-10 w-10 text-red-600" />,
@@ -37,25 +39,6 @@ const services = [
 export default function Services() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  }
 
   return (
     <section className="py-20 bg-background/50" id="services">
@@ -90,13 +73,13 @@ export default function Services() {
 
         <motion.div
           ref={ref}
-          variants={containerVariants}
+          variants={staggerContainerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {services.map((service, index) => (
-            <motion.div key={index} variants={itemVariants}>
+            <motion.div key={index} variants={fadeUpVariants}>
               <Card className="h-full border border-primary/10 bg-background/50 backdrop-blur-sm hover:shadow-md hover:shadow-primary/5 transition-all duration-300 overflow-hidden group">
                 <CardHeader>
                   <div className="mb-2">{service.icon}</div>
