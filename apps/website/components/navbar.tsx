@@ -70,7 +70,7 @@ export default function Navbar() {
           <BrandWordmark size="sm" />
         </Link>
 
-        <div className="hidden items-center gap-1 lg:flex xl:translate-x-6">
+        <div className="hidden items-center gap-1 lg:flex xl:translate-x-20">
           {primaryLinks.map((link) => (
             <Link key={link.href} href={link.href} className={linkClass(link.href)}>
               {link.name}

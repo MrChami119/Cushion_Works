@@ -47,63 +47,35 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
-  body {
-    @apply text-foreground;
-    background-color: hsl(var(--background));
+
+  html {
+    scrollbar-color: hsl(var(--primary) / 30%) hsl(var(--foreground) / 8%);
+    scrollbar-width: thin;
   }
-}
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
+  body {
+    @apply bg-background text-foreground;
+  }
 
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-}
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(229, 0, 0, 0.3);
-  border-radius: 4px;
-}
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--foreground) / 8%);
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(229, 0, 0, 0.5);
-}
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 30%);
+    border-radius: 999px;
+  }
 
-/* Glassmorphism */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dark .glass {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Neon effect */
-.neon-text {
-  text-shadow: 0 0 5px rgba(229, 0, 0, 0.5), 0 0 10px rgba(229, 0, 0, 0.3);
-}
-
-.neon-border {
-  box-shadow: 0 0 5px rgba(229, 0, 0, 0.5), 0 0 10px rgba(229, 0, 0, 0.3);
-}
-
-.blue-neon-text {
-  text-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.3);
-}
-
-.blue-neon-border {
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.3);
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 50%);
+  }
 }

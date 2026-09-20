@@ -3,7 +3,6 @@ import { ThemeProvider } from "@cushion/ui/theme-provider"
 import { Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import type { Metadata } from "next"
-import "./custom.css"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-display" })
@@ -20,10 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.className} ${playfair.variable}`}
-        style={{ backgroundColor: "hsl(var(--background))", color: "hsl(var(--foreground))" }}
-      >
+      <body className={`${inter.className} ${playfair.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
