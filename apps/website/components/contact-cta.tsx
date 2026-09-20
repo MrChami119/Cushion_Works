@@ -74,7 +74,7 @@ export default function ContactCTA() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <Link href="tel:+1234567890">
+              <Link href="tel:+94770103434">
                 <Button
                   variant="outline"
                   size="lg"

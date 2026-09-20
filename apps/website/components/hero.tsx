@@ -45,7 +45,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-600 via-white to-blue-600"
           >
-            Edirisinghe Cushion Works
+            Edirisingha Cushion Works
           </motion.h1>
 
           <motion.p
