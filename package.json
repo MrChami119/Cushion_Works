@@ -1,0 +1,22 @@
+{
+  "name": "cushion-works",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "npm@11.13.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "dev:website": "turbo dev --filter=@cushion/website",
+    "dev:admin": "turbo dev --filter=@cushion/admin",
+    "dev:api": "turbo dev --filter=@cushion/api"
+  },
+  "devDependencies": {
+    "turbo": "^2.8.0"
+  }
+}

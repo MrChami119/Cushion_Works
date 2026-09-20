@@ -1,0 +1,14 @@
+{
+  "name": "@cushion/eslint-config",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    "./next": "./next.mjs",
+    "./react": "./react.mjs"
+  },
+  "dependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint-config-next": "15.3.1"
+  },
+  "peerDependencies": { "eslint": "^9" }
+}
